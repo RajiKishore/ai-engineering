@@ -9,7 +9,7 @@ client = OpenAI(
     base_url=endpoint,
     api_key=token,
 )
-
+user_input = input("Enter your prompt for the model: ")
 response = client.chat.completions.create(
     messages=[
         {
@@ -18,9 +18,7 @@ response = client.chat.completions.create(
         },
         {
             "role": "user",
-            "content": """Generate 100 sample records based on the example records shared below 
-                        s_no,dept_id,sales_representative_code, card_no,date_time 
-                        1,4568,75698456,145689,2025-08-01""",
+            "content": user_input,
         }
     ],
     temperature=1,
